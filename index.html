@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+    
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Hero Section Styles */
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #f7f7f7;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Service Card Styles */
+.services {
+    padding: 50px 0;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-card p {
+    color: #666;
+}
+
+/* About Section Styles */
+.about {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+/* Contact Section Styles */
+.contact {
+    padding: 50px 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Add to your existing CSS */
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+}
+
+.slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 300px; /* Adjust slide width */
+    padding: 20px;
+    margin-right: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Optional: Add media queries for responsiveness */
+
+
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Name</title>
+    <!-- Link your CSS stylesheet here -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Optional: Add your meta tags for SEO -->
+</head>
+
+<body>
+    <header>
+        <!-- Navigation bar -->
+        <nav>
+            <div class="logo">
+                <img src="your-logo.png" alt="Your Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to Your Website</h1>
+            <p>Your compelling message or value proposition goes here.</p>
+            <a href="#learn-more" class="cta-button">Learn More</a>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <!-- List your services or key features -->
+            <div class="service-card">
+                <h3>Service Title</h3>
+                <p>Description of the service</p>
+                <!-- Add more service cards -->
+            </div>
+        </section>
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+        <div class="carousel">
+        <div class="slide">
+            <h3>Service Title 1</h3>
+            <p>Description of Service 1</p>
+        </div>
+        <div class="slide">
+            <h3>Service Title 2</h3>
+            <p>Description of Service 2</p>
+        </div>
+        <div class="slide">
+            <h3>Service Title 3</h3>
+            <p>Description of Service 3</p>
+        </div>
+        <!-- Add more slides as needed -->
+    </div>
+</section>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>Brief information about your company or yourself.</p>
+            <p>Testimonials or key achievements can be added here.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>Provide contact information or a contact form here.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+        <!-- Add additional footer links or information -->
+    </footer>
+</body>
+<script type="text/javascript">
+    
+
+
+
+    // JavaScript for slider functionality
+const slides = document.querySelectorAll('.slide');
+
+let isDragging = false;
+let startPosition = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+
+slides.forEach((slide, index) => {
+    let startX = 0;
+    let currentX = 0;
+
+    slide.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startPosition = e.pageX - slide.offsetLeft;
+        prevTranslate = currentTranslate;
+
+        slide.style.transition = 'none';
+    });
+
+    slide.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        currentX = e.pageX - slide.offsetLeft;
+        const translate = prevTranslate + currentX - startPosition;
+        slide.style.transform = `translateX(${translate}px)`;
+    });
+
+    slide.addEventListener('mouseup', () => {
+        isDragging = false;
+        currentTranslate = prevTranslate + currentX - startPosition;
+
+        if (currentTranslate > 0) currentTranslate = 0;
+        if (currentTranslate < -slide.offsetWidth * index) {
+            currentTranslate = -slide.offsetWidth * index;
+        }
+
+        slide.style.transition = 'transform 0.3s ease';
+        slide.style.transform = `translateX(${currentTranslate}px)`;
+    });
+
+    slide.addEventListener('mouseleave', () => {
+        isDragging = false;
+        currentTranslate = prevTranslate + currentX - startPosition;
+
+        if (currentTranslate > 0) currentTranslate = 0;
+        if (currentTranslate < -slide.offsetWidth * index) {
+            currentTranslate = -slide.offsetWidth * index;
+        }
+
+        slide.style.transition = 'transform 0.3s ease';
+        slide.style.transform = `translateX(${currentTranslate}px)`;
+    });
+});
+
+</script>
+</html>
